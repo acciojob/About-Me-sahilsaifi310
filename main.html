@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
 
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+.all{
+    display: flex;
+}
+.left{
+    display: flex;
+    width: 50vw;
+    flex: 50%;
+    gap: 10px;
+}
+.name{
+    margin-right: 50px;
+}
+
+.right{
+    flex: 50%;
+}
+body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        width: 100%;
+      }
+
+      h1 {
+        color: #4caf50;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+
+      .skill-bar {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 8px;
+        height: 20px;
+        margin-top: 5px;
+      }
+
+      .skill-bar div {
+        height: 100%;
+        border-radius: 8px;
+        text-align: center;
+        line-height: 20px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .profile-icon {
+        font-size: 50px;
+        color: #4caf50;
+      }
+
+      .skill-icon {
+        margin-right: 10px;
+        color: #4caf50;
+      }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="all">
+    <section class="left">
+        <div>
+            <img src="./dev.jpg" alt="dev Mishra" width="100px" >
+            <div id="root"></div>
+
+            <script type="text/babel">
+              
+              const UserProfile = () => {
+                
+                const user = {
+                  
+                
+                  skills: {
+                    HTML: 85,
+                    JavaScript: 90,
+                    React: 80,
+                    CSS: 75,
+                  },
+                };
+        
+                return (
+                  <div>
+                   
+                    <h2>Skills</h2>
+                    <ul>
+                      {Object.entries(user.skills).map(([skill, percentage]) => (
+                        <li key={skill}>
+                          {/* Skill Icon */}
+                          <i className={`fab fa-${skill.toLowerCase()} skill-icon`}></i>
+                          <strong>{skill}:</strong>
+                          <div className="skill-bar">
+                            <div
+                              style={{
+                                width: `${percentage}%`,
+                                backgroundColor: "#4CAF50", // green color
+                              }}
+                            >
+                              {percentage}%
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              };
+        
+              // Render the UserProfile component inside the div with id 'root'
+              ReactDOM.render(<UserProfile />, document.getElementById("root"));
+            </script>
+        </div>
+        <div class="name">
+            <p><b>Name :</b> Dev Mishra</p>
+            <p><b>Profile :</b> Software Developer</p>
+            <p><b>Email :</b> devmishra56@gmail.com</p>
+        </div>
+
+     
+
+    </section>
+   
+   
+
+    <section class="right">
+        <h2>About me</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis esse impedit unde necessitatibus facilis, temporibus architecto dolorem minima dolore vero doloremque, adipisci quo officia animi neque repellendus laudantium non rerum sed enim sit aut ipsa nobis. Exercitationem fugit unde explicabo perferendis facere aspernatur repellat commodi voluptate eveniet tempora in officiis quo ipsa doloribus laborum magnam officia, odit tempore totam incidunt voluptatum. </p>
+    </section>
+
+</div>
+
+
+    
+</body>
+</html>
